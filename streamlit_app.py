@@ -1,5 +1,11 @@
 import streamlit as st
 from openai import OpenAI
+import crewai
+from mistral_ai import MistralModel
+
+
+# Initialize the Mistral AI model
+mistral_model = MistralModel(api_key="YOUR_MISTRAL_API_KEY")
 
 # Show title and description.
 st.title("💬 Chatbot")
@@ -48,6 +54,16 @@ else:
             ],
             stream=True,
         )
+# Define the agent class
+class MedicalAssistantAgent(crewai.Agent):
+    def __init__(self, name):
+        super().__init__(name)
+        self.model = mistral_model
+
+    def handle_message(self, message):
+        # Process the message using the Mistral AI model
+        response = self.model.generate_response(message)
+        return response
 
         # Stream the response to the chat using `st.write_stream`, then store it in 
         # session state.

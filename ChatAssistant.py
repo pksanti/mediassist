@@ -29,7 +29,7 @@ parameters = {
 }
 
 st.set_page_config(
-    page_title = 'Execution Run'
+    page_title = 'Chat'
 )
 st.html("""
     <style>

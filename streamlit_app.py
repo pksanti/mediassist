@@ -13,7 +13,7 @@ st.html("""
 )
 
 
-st.title('Medical Assistant")
+st.title("Medical Assistant")
 #st.subheader("*powered by IBM watsonx*", divider="gray")
 
 st.markdown("*Streamlit* is **really** ***cool***.")
